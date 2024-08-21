@@ -1,0 +1,15 @@
+NAME="update-ip-ranges-ferm-variables"
+AUTHOR="Cyberfusion <system-messages.generic@cyberfusion.io>"
+TUXIS_CRONLOCK="/tmp/.tuxis-cron.$NAME.lock"
+MASTERLOG="/var/log/tuxis-cron/$NAME.log"
+PATH=/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
+
+ESCALATE_MAILTO="system-messages.generic@cyberfusion.io"
+
+func_cron()
+{
+  echo "Write IP ranges to ferm variables"
+  /usr/bin/external-providers-ip-ranges-cli || warning "Error writing IP ranges to ferm variables"
+  echo "(Done) Write IP ranges to ferm variables"
+  echo ""
+}
