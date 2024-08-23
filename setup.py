@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="python3-cyberfusion-external-providers-ip-ranges",
-    version="2.1.1.1",
+    version="2.1.1.2",
     description="Scripts to add IP ranges of external providers to ferm.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -25,4 +25,9 @@ setup(
             "external-providers-ip-ranges-cli=cyberfusion.ExternalProvidersIPRanges:main",
         ]
     },
+    install_requires=[
+        "requests==2.28.1",
+        "python3-cyberfusion-common~=2.0",
+        "python3-cyberfusion-ferm-support~=1.1",
+    ],
 )
