@@ -17,9 +17,7 @@ def ferm_configuration_is_valid_mock(mocker: MockerFixture) -> None:
 
 @pytest.fixture(autouse=True)
 def systemd_restart_mock(mocker: MockerFixture) -> None:
-    mocker.patch(
-        "cyberfusion.SystemdSupport.units.Unit.restart", return_value=None
-    )
+    mocker.patch("cyberfusion.SystemdSupport.units.Unit.restart", return_value=None)
 
 
 @pytest.fixture

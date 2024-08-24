@@ -1,6 +1,4 @@
 import ipaddress
-import os
-from pathlib import Path
 
 from pytest_mock import MockerFixture
 
