@@ -5,7 +5,7 @@ from pytest_mock import MockerFixture
 from cyberfusion.ExternalProvidersIPRanges import Configuration, main
 
 
-def test_main(mocker: MockerFixture, ferm_base_path_mock: None):
+def test_main(mocker: MockerFixture, ferm_base_path_mock: None) -> None:
     spy = mocker.spy(Configuration, "__init__")
 
     main()
