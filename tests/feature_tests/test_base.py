@@ -17,6 +17,7 @@ def test_main(mocker: MockerFixture, ferm_base_path_mock: None) -> None:
 
         assert "@def $BUDDY = (" in lines
         assert "@def $ATLASSIAN = (" in lines
+        assert "@def $AWS = (" in lines
         assert "@def $GOOGLE_CLOUD = (" in lines
 
         for line in lines:
