@@ -61,6 +61,32 @@ class AtlassianIPRangeHandler(ExternalProviderIPRangeHandlerInterface):
         return result
 
 
+class AWSIPRangeHandler(ExternalProviderIPRangeHandlerInterface):
+    """Class for external provider IP range handler."""
+
+    @property
+    def name(self) -> str:
+        """Get external provider name."""
+        return "aws"
+
+    @property
+    def ip_ranges(self) -> List[str]:
+        """Get IP ranges."""
+        result = []
+
+        request = requests.get("https://ip-ranges.amazonaws.com/ip-ranges.json")
+        request.raise_for_status()
+        data = request.json()
+
+        for item in data["prefixes"]:
+            result.append(item["ip_prefix"])
+
+        for item in data["ipv6_prefixes"]:
+            result.append(item["ipv6_prefix"])
+
+        return result
+
+
 class GoogleCloudIPRangeHandler(ExternalProviderIPRangeHandlerInterface):
     """Class for external provider IP range handler."""
 
@@ -123,6 +149,7 @@ def main() -> None:
         BuddyIPRangeHandler(),
         GoogleCloudIPRangeHandler(),
         AtlassianIPRangeHandler(),
+        AWSIPRangeHandler(),
     ]
 
     for handler in handlers:
