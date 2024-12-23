@@ -130,7 +130,7 @@ class BuddyIPRangeHandler(ExternalProviderIPRangeHandlerInterface):
         request.raise_for_status()
         data = request.json()
 
-        for item in data["runners"] + data["vms"]:
+        for item in data["runners"]:
             result.append(item)
 
         return result
