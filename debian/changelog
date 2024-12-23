@@ -1,3 +1,9 @@
+python3-cyberfusion-external-providers-ip-ranges (2.3) unstable; urgency=low
+
+  - Update Buddy
+
+ -- William Edwards <wedwards@cyberfusion.nl>  Mon, 23 Dec 2024 19:33:00 +0200
+
 python3-cyberfusion-external-providers-ip-ranges (2.2) unstable; urgency=low
 
   - Add AWS as external provider
