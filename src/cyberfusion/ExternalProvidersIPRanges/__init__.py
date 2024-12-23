@@ -126,11 +126,17 @@ class BuddyIPRangeHandler(ExternalProviderIPRangeHandlerInterface):
         """Get IP ranges."""
         result = []
 
+        ip_ranges = []
+
         request = requests.get("https://buddy.works/api/ips")
         request.raise_for_status()
-        data = request.json()
+        ip_ranges.extend(request.json()["runners"])
 
-        for item in data["runners"] + data["vms"]:
+        request = requests.get("https://buddy.works/api/ips/eu")
+        request.raise_for_status()
+        ip_ranges.extend(request.json()["runners"])
+
+        for item in ip_ranges:
             result.append(item)
 
         return result
